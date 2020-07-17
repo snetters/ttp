@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './OrgVis.css'
+
 class OrgVis extends React.Component {
     constructor(props) {
         super(props);
@@ -10,13 +12,13 @@ class OrgVis extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         var cON = nextProps.saveDown.currentOrgName
-        console.log("oV cWRP orgName", cON)
+        console.log("oV cWRP orgName =", cON)
         this.setState({ cOrgName: cON })
     }
 
     render() {
         return (
-            <div >
+            <div className="OrgVis">
                 <p>Organization Name: {this.state.cOrgName}</p>
             </div>
         )
