@@ -4,20 +4,20 @@ class OrgVis extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            orgName: "initOrgVisOrgName"
+            cOrgName: "initOrgVisOrgName"
         };
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log("oV cWRP nextProps.curState", nextProps.curState)
-        var cSON = nextProps.curState.currentOrg
-        this.setState({ cOrgName: cSON })
+        var cON = nextProps.saveDown.currentOrgName
+        console.log("oV cWRP orgName", cON)
+        this.setState({ cOrgName: cON })
     }
 
     render() {
         return (
             <div >
-                <p>Organization Name: {this.state.orgName}</p>
+                <p>Organization Name: {this.state.cOrgName}</p>
             </div>
         )
     }

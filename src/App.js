@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentOrg: 'initCurrentOrg'
+      currentOrgName: 'initCurrentOrgName'
     }
     this.apiCall.bind(this);
   }
@@ -24,9 +24,9 @@ class App extends React.Component {
 
         <Form saveUp={s => {
           console.log("parent saveUp response s=", s)
-          this.setState({ currentOrg: s.orgName })}} />
+          this.setState({ currentOrgName: s.orgName })}} />
 
-        <OrgVis />
+        <OrgVis saveDown={this.state}/>
 
       </div>
     );
