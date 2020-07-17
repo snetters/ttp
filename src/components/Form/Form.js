@@ -15,6 +15,7 @@ class Form extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.timeGetReq = this.timeGetReq.bind(this)
     this.formGetReq = this.formGetReq.bind(this)
+    this.formPostReq = this.formPostReq.bind(this)
   }
 
 
@@ -29,7 +30,8 @@ class Form extends React.Component {
     console.log("submitted form =", this.state)
 
     // API request
-    this.formGetReq(this.state.orgName)
+   // this.formGetReq(this.state)
+    this.formPostReq(this.state)
 
     // PROPS call here
     this.props.saveUp( this.state );
@@ -58,15 +60,31 @@ class Form extends React.Component {
 
 
 
-  formGetReq(cON) {
+  formGetReq(cS) {
     axios.get('http://localhost:3000/backend/formAPI', {
       params: {
-        orgName: cON
+        orgName: cS.orgName
       }
     })
     .then(function (response) {
       // API output data
-      console.log(response.data);
+      console.log("Get-Req response.data =", response.data);
+      // What you want to do with the API output data
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
+  formPostReq(cS) {
+    axios.post('http://localhost:3000/backend/formAPI', {
+      params: {
+        orgName: cS.orgName
+      }
+    })
+    .then(function (response) {
+      // API output data
+      console.log("Post-Req response.data =", response.data);
       // What you want to do with the API output data
     })
     .catch(function (error) {

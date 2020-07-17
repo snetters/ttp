@@ -14,7 +14,6 @@ class App extends React.Component {
     }
   }
 
-
   render() {
     return (
       <div className="App">
@@ -23,6 +22,9 @@ class App extends React.Component {
           console.log("parent saveUp response s =", s)
           this.setState({ currentOrgName: s.orgName })}}
         />
+
+        <br />
+        <br />
 
         <OrgVis saveDown={this.state}/>
 

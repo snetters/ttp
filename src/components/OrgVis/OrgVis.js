@@ -6,7 +6,7 @@ class OrgVis extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            cOrgName: "initOrgVisOrgName"
+            cOrgName: "search for an organization above"
         };
     }
 
@@ -19,7 +19,7 @@ class OrgVis extends React.Component {
     render() {
         return (
             <div className="OrgVis">
-                <p>Organization Name: {this.state.cOrgName}</p>
+                <p>Organization Search Result: {this.state.cOrgName}</p>
             </div>
         )
     }
