@@ -1,10 +1,16 @@
 from flask import Flask
 
-import time
-
 app = Flask(__name__)
 
 @app.route('/time')
-def get_current_time():
+def getTime():
+    import time
     ## No need to jsonify
     return { 'time': time.time() }
+
+
+@app.route('/formAPI', methods=['GET', 'POST'])
+def formAPI():
+    print("formAPI called")
+    ## No need to jsonify
+    return "helloWorld"
