@@ -7,10 +7,9 @@ import './Nav.css'
 class Nav extends React.Component {
     render() {
         return (
-            <div >
-                 <nav className="navBody">
-                    <h3>Navigation Menu: </h3>
-                    <ul className="navSections">
+            <div className="navBody">
+                 <nav className="navSections">
+                    <ul className="navList">
                         <Link className="navLinks" to="/">
                             <li>Home</li>
                         </Link>

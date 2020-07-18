@@ -11,10 +11,14 @@
 }
 
 .navSections {
-    width: 100%;
+    min-width: 100%;
+}
+
+.navList {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    width: 90%;
     list-style: none;
 }
 

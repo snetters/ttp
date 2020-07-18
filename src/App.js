@@ -21,7 +21,7 @@ class App extends React.Component {
             <Route exact path='/about' component={About} />
             <Route exact path='/orgSearch' component={OrgSearch} />
             <Route path='/404' component={NotFound} />
-            <Redirect from='*' to='/404' />
+            <Redirect to='/404' />
           </Switch>
 
         </div>

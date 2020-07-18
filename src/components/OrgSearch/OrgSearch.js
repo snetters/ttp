@@ -22,7 +22,6 @@ class OrgSearch extends React.Component {
         />
 
         <br />
-        <br />
 
         <OrgVis saveDown={this.state}/>
 

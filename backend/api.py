@@ -22,15 +22,20 @@ def formAPI():
         
         ## Implement SQL logic here
         
-        
         ## No need to jsonify
         return { "orgName": orgName }
     
     elif request.method == 'POST':
         dict_str = request.data.decode("UTF-8")
         postData = ast.literal_eval(dict_str)
+        
         inputParams = postData.get('params')
         
         orgName = inputParams.get('orgName')
         
+        ## Implement backend logic here
+        
+        ## Implement SQL logic here
+        
+        ## No need to jsonify
         return { "orgName": orgName }

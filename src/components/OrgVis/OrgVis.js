@@ -1,19 +1,19 @@
-import React from 'react';
+import React from 'react'
 
 import './OrgVis.css'
 
 class OrgVis extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             cOrgName: "search for an organization above"
-        };
+        }
     }
 
-    componentWillReceiveProps(nextProps) {
-        var cON = nextProps.saveDown.currentOrgName
-        console.log("oV cWRP orgName =", cON)
-        this.setState({ cOrgName: cON })
+    static getDerivedStateFromProps(props) {
+        var cON = props.saveDown.currentOrgName
+        console.log("saveDown orgName =", cON)
+        return { cOrgName: cON }
     }
 
     render() {
