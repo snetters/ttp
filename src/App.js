@@ -1,34 +1,22 @@
 import React from 'react';
 
-import Form from "./components/Form/Form"
+import Nav from "./components/Nav/Nav";
+import OrgSearch from "./components/OrgSearch/OrgSearch";
 
-import OrgVis from "./components/OrgVis/OrgVis"
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import './App.css';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentOrgName: 'initCurrentOrgName'
-    }
-  }
-
   render() {
     return (
-      <div className="App">
+      <Router>
+        <div className="App">
+          <Nav />
+          <Route path="/orgSearch" component={OrgSearch}/>
 
-        <Form saveUp={s => {
-          console.log("parent saveUp response s =", s)
-          this.setState({ currentOrgName: s.orgName })}}
-        />
-
-        <br />
-        <br />
-
-        <OrgVis saveDown={this.state}/>
-
-      </div>
+        </div>
+      </Router>
     );
   }
 
