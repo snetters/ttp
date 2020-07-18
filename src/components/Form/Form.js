@@ -34,20 +34,20 @@ class Form extends React.Component {
     this.formPostReq(this.state)
 
     // PROPS call here
-    this.props.saveUp( this.state );
+    this.props.saveUp( this.state )
   }
 
 
 
 
   timeGetReq() {
-    var axios = require('axios');
+    var axios = require('axios')
 
     var config = {
       method: 'get',
       url: 'http://localhost:3000/backend/time',
       headers: { }
-    };
+    }
 
     axios(config)
     .then(function (response) {
@@ -72,8 +72,8 @@ class Form extends React.Component {
       // What you want to do with the API output data
     })
     .catch(function (error) {
-      console.log(error);
-    });
+      console.log(error)
+    })
   }
 
   formPostReq(cS) {
@@ -88,8 +88,8 @@ class Form extends React.Component {
       // What you want to do with the API output data
     })
     .catch(function (error) {
-      console.log(error);
-    });
+      console.log(error)
+    })
   }
 
 

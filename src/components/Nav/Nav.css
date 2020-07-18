@@ -1,4 +1,4 @@
-.nav-body {
+.navBody {
     background-color: #202020;
     display: flex;
     justify-content: space-around;
@@ -10,10 +10,14 @@
     text-align: center;
 }
 
-.nav-links {
-    width: 50%;
+.navSections {
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     list-style: none;
+}
+
+.navLinks {
+    color: white;
 }
