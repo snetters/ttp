@@ -39,3 +39,80 @@ def formAPI():
         
         ## No need to jsonify
         return { "orgName": orgName }
+    
+    
+    
+@app.route('/backend/createAccount', methods=['GET', 'POST'])
+def userFormAPI():
+    if request.method == 'GET':
+        return userInfoVerification(request.args)
+    
+        
+    
+    elif request.method == 'POST':
+        dict_str = request.data.decode("UTF-8")
+        postData = ast.literal_eval(dict_str)
+        
+        
+        inputParams = postData.get('params')
+        
+        return userInfoVerification(inputParams)
+        
+        
+    
+def userInfoVerification(inputParams):
+    
+    email = inputParams.get('email')
+    username = inputParams.get('username')
+    pasW = inputParams.get('pass')
+    pasWConf = inputParams.get('passConf')
+        
+    if  pasW != pasWConf:
+        return { 'error': 'passConf' }
+    if len(pasW) < 5:
+        return { 'error': 'passIsShort' }
+    if pasW.islower():
+        return { 'error': 'passIsLower'}
+    if pasW.isupper():
+        return { 'error': 'passIsUpper' }
+    
+    ## We can put the username through the database here to check if this user already exists
+    ## At this point, the user information is valid
+    
+    ## We send this data to the database
+    userInfo = { 'email': email, 'username': username, 'pass': pasW, 'verified': True }
+    
+    return userInfo
+    
+    
+@app.route('/backend/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'GET':
+        return loginVerification(request.args)
+    
+        
+    
+    elif request.method == 'POST':
+        dict_str = request.data.decode("UTF-8")
+        postData = ast.literal_eval(dict_str)
+        
+        
+        inputParams = postData.get('params')
+        
+        return loginVerification(inputParams)
+    
+    
+def loginVerification(inputParams):
+    
+    username = inputParams.get('username')
+    pasW = inputParams.get('pass')
+        
+    ## VERIFY W/ DATABASE HERE
+    
+    ## We can put the username through the database here to check if this user already exists
+    ## At this point, the user information is valid
+    
+    ## We send this data to the database
+    userInfo = { 'username': username, 'pass': pasW, 'verified': True }
+    
+    return userInfo

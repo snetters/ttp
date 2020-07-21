@@ -112,7 +112,7 @@ class Form extends React.Component {
           <input type="text" placeholder='organization name' name="orgName" onChange={this.handleInputChange}/>
           <br></br>
 
-          <button type="submit">Submit</button>
+          <button type="submit">Search</button>
           <br></br>
 
         </form>

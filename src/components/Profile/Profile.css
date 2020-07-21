@@ -1,0 +1,18 @@
+.Unlogged {
+    min-width: 100%;
+}
+
+.Logged {
+    min-width: 100%
+}
+
+.navLinks {
+    
+}
+
+.navList {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}

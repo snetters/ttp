@@ -1,8 +1,10 @@
 import React from 'react';
 
-import Form from "../Form/Form"
+import Form from "./Form/Form"
 
-import OrgVis from "../OrgVis/OrgVis"
+import OrgVis from "./OrgVis/OrgVis"
+
+import './OrgSearch.css'
 
 class OrgSearch extends React.Component {
   constructor(props) {
@@ -15,7 +17,6 @@ class OrgSearch extends React.Component {
   render() {
     return (
       <div className="OrgSearch">
-
         <Form saveUp={s => {
           console.log("parent saveUp response s =", s)
           this.setState({ currentOrgName: s.orgName })}}

@@ -21,6 +21,11 @@ class Nav extends React.Component {
                         <Link className="navLinks" to="/orgSearch">
                             <li>Organization Search</li>
                         </Link>
+
+                        <Link className="navLinks" to="/profile">
+                            <li>Profile</li>
+                        </Link>
+
                     </ul>
                 </nav>
             </div>
