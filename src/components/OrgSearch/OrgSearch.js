@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Form from "./Form/Form"
+import OrgSearchForm from "./OrgSearchForm/OrgSearchForm"
 
 import OrgVis from "./OrgVis/OrgVis"
 
@@ -17,7 +17,9 @@ class OrgSearch extends React.Component {
   render() {
     return (
       <div className="OrgSearch">
-        <Form saveUp={s => {
+        <p>Organization Search</p>
+
+        <OrgSearchForm saveUp={s => {
           console.log("parent saveUp response s =", s)
           this.setState({ currentOrgName: s.orgName })}}
         />

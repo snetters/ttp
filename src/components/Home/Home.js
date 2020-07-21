@@ -6,7 +6,7 @@ class Home extends React.Component {
     render() {
         return (
             <div className="Home">
-                <p>Home</p>
+                <p>Welcome to the IBM Team Three Donation Tracker</p>
             </div>
         )
     }

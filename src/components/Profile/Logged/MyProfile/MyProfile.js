@@ -1,5 +1,7 @@
 import React from 'react'
 
+import PropTypes from 'prop-types'
+
 import './MyProfile.css'
 
 class MyProfile extends React.Component {
@@ -11,20 +13,28 @@ class MyProfile extends React.Component {
         }
     }
 
-    compo
-
     render() {
-        console.log(this.props)
-        console.log(this.state)
+        console.log("Prop types", PropTypes)
         return (
             <div className="MyProfile">
-                <p>MyProfile</p>
+                <p>My Profile</p>
                 <br />
 
                 <p>Username: {this.state.username}</p>
                 <p>Password: {this.state.pass}</p>
             </div>
         )
+    }
+}
+
+MyProfile.propTypes = {
+    profState: PropTypes.object,
+}
+
+MyProfile.defaultProps = {
+    profState: {
+        username: 'username',
+        pass: 'Password',
     }
 }
 

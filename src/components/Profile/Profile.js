@@ -1,12 +1,18 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom'
+import { Switch, Route, Link } from 'react-router-dom'
 
 import CreateAccountForm from './Unlogged/CreateAccountForm/CreateAccountForm'
 import LoginForm from './Unlogged/LoginForm/LoginForm'
 
 import MyDonations from './Logged/MyDonations/MyDonations'
 import MyProfile from './Logged/MyProfile/MyProfile'
+
+import LoggedIn from './Logged/LoggedIn/LoggedIn'
+
+import CreateAccountVerified from './Logged/CreateAccountVerified/CreateAccountVerified'
+import LoginVerified from './Logged/LoginVerified/LoginVerified'
 
 import './Profile.css'
 
@@ -77,6 +83,11 @@ class Profile extends React.Component {
 
 
                 <Switch>
+                    <Route exact path='/profile' component={LoggedIn} />
+
+                    <Route exact path='/profile/createAccount' component={CreateAccountVerified} />
+                    <Route exact path='/profile/login' component={LoginVerified} />
+                    
                     <Route exact path='/profile/myDonations'
                         render={() => <MyDonations
                             saveUp={ this.saveUp } />}
@@ -101,6 +112,19 @@ class Profile extends React.Component {
         if (! this.state.loggedIn) {
             return this.unloggedMode()
         }
+    }
+}
+
+Profile.propTypes = {
+    appState: PropTypes.object,
+    saveUp: PropTypes.func,
+}
+
+Profile.defaultProps = {
+    appState: {
+        username: 'username',
+        pass: 'Password',
+        loggedIn: false,
     }
 }
 

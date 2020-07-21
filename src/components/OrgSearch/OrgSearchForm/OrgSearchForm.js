@@ -1,10 +1,10 @@
 import React from 'react';
 
-import './Form.css'
+import './OrgSearchForm.css'
 
 import axios from 'axios';
 
-class Form extends React.Component {
+class OrgSearchForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -104,9 +104,7 @@ class Form extends React.Component {
     const {orgName} = this.state
 
     return (
-      <div className="Form">
-        <p>Organization Name is: {orgName}</p>
-
+      <div className="OrgSearchForm">
         <form onSubmit={this.handleSubmit}>
 
           <input type="text" placeholder='organization name' name="orgName" onChange={this.handleInputChange}/>
@@ -121,4 +119,4 @@ class Form extends React.Component {
   }
 }
 
-export default Form
+export default OrgSearchForm
