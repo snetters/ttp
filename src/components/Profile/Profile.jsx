@@ -9,6 +9,7 @@ import LoginForm from './Unlogged/LoginForm/LoginForm';
 import MyDonations from './Logged/MyDonations/MyDonations';
 import MyProfile from './Logged/MyProfile/MyProfile';
 
+import Unlogged from './Unlogged/Unlogged/Unlogged';
 import LoggedIn from './Logged/LoggedIn/LoggedIn';
 
 import CreateAccountVerified from './Logged/CreateAccountVerified/CreateAccountVerified';
@@ -41,7 +42,7 @@ class Profile extends React.Component {
 
   unloggedMode() {
     return (
-      <div className="Unlogged">
+      <div className="UnloggedMode">
         <ul className="navList">
           <Link className="navLinks" to="/profile/createAccount">
             <li>Create Account</li>
@@ -53,6 +54,8 @@ class Profile extends React.Component {
         </ul>
 
         <Switch>
+          <Route exact path="/profile" component={Unlogged}></Route>
+
           <Route
             exact
             path="/profile/createAccount"
@@ -71,7 +74,7 @@ class Profile extends React.Component {
 
   loggedMode() {
     return (
-      <div className="Logged">
+      <div className="LoggedMode">
         <ul className="navList">
           <Link className="navLinks" to="/profile/myDonations">
             <li>My Donations</li>
