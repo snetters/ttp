@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './CreateAccountForm.css';
 
@@ -65,8 +66,8 @@ class CreateAccountForm extends React.Component {
         const apiResponse = response.data;
 
         console.log('Get-Req response.data =', apiResponse);
-
-        this.props.saveUp(apiResponse);
+        const { props } = this.props;
+        props.saveUp(apiResponse);
         // What you want to do with the API output data
       })
       .catch((error) => {
@@ -99,8 +100,8 @@ class CreateAccountForm extends React.Component {
           pass: p,
           verified: v,
         };
-
-        this.props.saveUp(apiResponse);
+        const { props } = this.props;
+        props.saveUp(apiResponse);
         // What you want to do with the API output data
       })
       .catch((error) => {
@@ -151,5 +152,21 @@ class CreateAccountForm extends React.Component {
     );
   }
 }
+
+CreateAccountForm.propTypes = {
+  props: PropTypes.objectOf(PropTypes.any),
+};
+
+CreateAccountForm.defaultProps = {
+  props: {
+    appState: {
+      email: 'example@email.com',
+      username: 'username',
+      pass: 'Password',
+      passConf: 'Password',
+      verified: false,
+    },
+  },
+};
 
 export default CreateAccountForm;

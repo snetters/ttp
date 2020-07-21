@@ -11,15 +11,19 @@ class OrgVis extends React.Component {
   }
 
   static getDerivedStateFromProps(props) {
-    var cON = props.saveDown.currentOrgName;
+    const cON = props.saveDown.currentOrgName;
     console.log('saveDown orgName =', cON);
     return { cOrgName: cON };
   }
 
   render() {
+    const { state } = this.state;
     return (
       <div className="OrgVis">
-        <p>Organization Search Result: {this.state.cOrgName}</p>
+        <p>
+          Organization Search Result:
+          {state.cOrgName}
+        </p>
       </div>
     );
   }

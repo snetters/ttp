@@ -15,9 +15,15 @@ class OrgSearch extends React.Component {
   }
 
   render() {
+    const { state } = this.state;
     return (
       <div className="OrgSearch">
         <p>Organization Search</p>
+
+        <p>
+          Organization name:
+          {state.currentOrgName}
+        </p>
 
         <OrgSearchForm
           saveUp={(s) => {

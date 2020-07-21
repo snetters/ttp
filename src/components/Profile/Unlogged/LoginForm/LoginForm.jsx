@@ -1,113 +1,137 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import './LoginForm.css'
+import './LoginForm.css';
 
 import axios from 'axios';
 
 class LoginForm extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            username: '',
-            pass: '',
-            verified: false
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      pass: '',
+      verified: false,
+    };
 
-        this.handleInputChange = this.handleInputChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.loginGetReq = this.loginGetReq.bind(this)
-        this.loginReq = this.loginPostReq.bind(this)
-    }
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.loginGetReq = this.loginGetReq.bind(this);
+    this.loginReq = this.loginPostReq.bind(this);
+  }
 
-    handleInputChange = (event) => {
-        console.log(event.target.name, event.target.value);
-        this.setState({ [event.target.name]: event.target.value });
-    }
+  componentDidMount() {
+    this.setState({ username: 'initUsername', pass: 'initPass' });
+  }
 
-    handleSubmit = (event) => {
-        event.preventDefault()
-        console.log("submitted form =", this.state)
+  handleInputChange(event) {
+    console.log(event.target.name, event.target.value);
+    this.setState({ [event.target.name]: event.target.value });
+  }
 
-        // API request
-        // this.loginGetReq(this.state)
-        this.loginPostReq(this.state)
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log('submitted form =', this.state);
 
-        // console.log('apiResponse =', resp)
+    // API request
+    // this.loginGetReq(this.state)
+    this.loginPostReq(this.state);
 
-        // // PROPS call here
-    }
+    // console.log('apiResponse =', resp)
 
+    // // PROPS call here
+  }
 
-
-
-    loginGetReq(cS) {
-    axios.get('http://localhost:3000/backend/login', {
+  loginGetReq(cS) {
+    axios
+      .get('http://localhost:3000/backend/login', {
         params: {
-            username: cS.username,
-            pass: cS.pass,
-        }
-    })
-    .then(function (response) {
+          username: cS.username,
+          pass: cS.pass,
+        },
+      })
+      .then((response) => {
+        const { appProps } = this.props;
         // API output data
+        const apiResponse = response.data;
 
-        const output = response.data
+        appProps.saveUp(apiResponse);
 
-        console.log("Get-Req response.data =", output)
-        
         // What you want to do with the API output data
-        return output
-    })
-    .catch(function (error) {
-        console.log(error)
-    }) }
+        return apiResponse;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
-    loginPostReq(cS) {
-    axios.post('http://localhost:3000/backend/login', {
+  loginPostReq(cS) {
+    axios
+      .post('http://localhost:3000/backend/login', {
         params: {
-            username: cS.username,
-            pass: cS.pass,
-        }
-    })
-    .then((response) => {
+          username: cS.username,
+          pass: cS.pass,
+        },
+      })
+      .then((response) => {
+        const { appProps } = this.props;
         // API output data
-        console.log("Post-Req response.data =", response.data)
+        console.log('Post-Req response.data =', response.data);
 
-        const u = response.data.username
-        const p = response.data.pass
-        const v = response.data.verified
+        const u = response.data.username;
+        const p = response.data.pass;
+        const v = response.data.verified;
 
-        const apiResponse = { username: u, pass: p, verified: v }
+        const apiResponse = { username: u, pass: p, verified: v };
 
-        this.props.saveUp( apiResponse )
+        appProps.saveUp(apiResponse);
         // What you want to do with the API output data
-    })
-    .catch((error) => {
-        console.log(error)
-    }) }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
-    
+  render() {
+    return (
+      <div className="LoginForm">
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            placeholder="username"
+            name="username"
+            onChange={this.handleInputChange}
+          />
+          <br />
 
-    componentDidMount() {
-        this.setState({ username: 'initUsername', pass: 'initPass' })
-    }
+          <input
+            type="password"
+            placeholder="pass"
+            name="pass"
+            onChange={this.handleInputChange}
+          />
+          <br />
 
-    render() {
-        return (
-            <div className="LoginForm">
-                <form onSubmit={this.handleSubmit}>
-
-                    <input type="text" placeholder='username' name="username" onChange={this.handleInputChange}/>
-                    <br />
-
-                    <input type="password" placeholder='pass' name="pass" onChange={this.handleInputChange}/>
-                    <br />
-
-                    <button type="submit">Login</button>
-                    <br />
-
-                </form>
-            </div>
-    ) }
+          <button type="submit">Login</button>
+          <br />
+        </form>
+      </div>
+    );
+  }
 }
 
-export default LoginForm
+LoginForm.propTypes = {
+  appProps: PropTypes.objectOf(PropTypes.any),
+};
+
+LoginForm.defaultProps = {
+  appProps: {
+    appState: {
+      username: 'username',
+      pass: 'Password',
+      loggedIn: false,
+    },
+  },
+};
+
+export default LoginForm;

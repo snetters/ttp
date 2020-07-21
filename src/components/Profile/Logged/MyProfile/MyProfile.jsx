@@ -7,32 +7,40 @@ import './MyProfile.css';
 class MyProfile extends React.Component {
   constructor(props) {
     super(props);
+    const { profProps } = this.props;
     this.state = {
-      username: this.props.profState.username,
-      pass: this.props.profState.pass,
+      username: profProps.profState.username,
+      pass: profProps.profState.pass,
     };
   }
 
   render() {
-    console.log('Prop types', PropTypes);
+    const { state } = this.state;
     return (
       <div className="MyProfile">
         <p>My Profile</p>
         <br />
 
-        <p>Username: {this.state.username}</p>
-        <p>Password: {this.state.pass}</p>
+        <p>
+          Username:
+          {state.username}
+        </p>
+
+        <p>
+          Password:
+          {state.pass}
+        </p>
       </div>
     );
   }
 }
 
 MyProfile.propTypes = {
-  profState: PropTypes.object,
+  profProps: PropTypes.objectOf(PropTypes.any),
 };
 
 MyProfile.defaultProps = {
-  profState: {
+  profProps: {
     username: 'username',
     pass: 'Password',
   },

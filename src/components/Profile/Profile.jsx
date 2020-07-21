@@ -20,10 +20,11 @@ import './Profile.css';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
+    const { appProps } = this.props;
     this.state = {
-      username: this.props.appState.username,
-      pass: this.props.appState.pass,
-      loggedIn: this.props.appState.loggedIn,
+      username: appProps.appState.username,
+      pass: appProps.appState.pass,
+      loggedIn: appProps.appState.loggedIn,
     };
     this.saveUp = this.saveUp.bind(this);
     this.unloggedMode = this.unloggedMode.bind(this);
@@ -31,13 +32,14 @@ class Profile extends React.Component {
   }
 
   saveUp(state) {
+    const { appProps } = this.props;
     this.setState({
       username: state.username,
       pass: state.pass,
       loggedIn: state.verified,
     });
     console.log('saveUp ', this.state);
-    this.props.saveUp(this.state);
+    appProps.saveUp(this.state);
   }
 
   unloggedMode() {
@@ -54,7 +56,7 @@ class Profile extends React.Component {
         </ul>
 
         <Switch>
-          <Route exact path="/profile" component={Unlogged}></Route>
+          <Route exact path="/profile" component={Unlogged} />
 
           <Route
             exact
@@ -114,25 +116,25 @@ class Profile extends React.Component {
   }
 
   render() {
-    if (this.state.loggedIn) {
+    const { logger } = this.state;
+    if (logger.loggedIn) {
       return this.loggedMode();
     }
-    if (!this.state.loggedIn) {
-      return this.unloggedMode();
-    }
+    return this.unloggedMode();
   }
 }
 
 Profile.propTypes = {
-  appState: PropTypes.object,
-  saveUp: PropTypes.func,
+  appProps: PropTypes.objectOf(PropTypes.any),
 };
 
 Profile.defaultProps = {
-  appState: {
-    username: 'username',
-    pass: 'Password',
-    loggedIn: false,
+  appProps: {
+    appState: {
+      username: 'username',
+      pass: 'Password',
+      loggedIn: false,
+    },
   },
 };
 
