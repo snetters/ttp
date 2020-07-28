@@ -1,0 +1,13 @@
+{
+  "folders": [
+    {
+      "path": "../bootcamp-2020.1"
+    },
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    // You can add custom settings here, look into it
+  }
+}

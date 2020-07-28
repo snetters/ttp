@@ -4,6 +4,20 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `yarn lint`
+
+Run eslint on the entire project folder, in the future this will ignore node_modules and become more usefull<br />
+Right now eslint works by enforcing prettier and eslint rules on the vscode workspace.<br />
+
+### `yarn start-backend`
+
+Runs the backend API server on port 500.<br />
+Open [http://localhost:3000/backend](http://localhost:3000/backend) to view it in the browser.
+Please note that the above port has been proxied to the development port 3000<br />
+
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
+
 ### `yarn start`
 
 Runs the app in the development mode.<br />
