@@ -1,36 +1,36 @@
-import React from 'react';
+import React from 'react'
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
-} from 'react-router-dom';
+} from 'react-router-dom'
 
-import Nav from './components/Nav/Nav';
-import Home from './components/Home/Home';
-import About from './components/About/About';
-import OrgSearch from './components/OrgSearch/OrgSearch';
-import Profile from './components/Profile/Profile';
-import Netters from './components/Netters/Netters';
-import NotFound from './components/NotFound/NotFound';
+import Nav from './components/Nav/Nav'
+import Home from './components/Home/Home'
+import About from './components/About/About'
+import OrgSearch from './components/OrgSearch/OrgSearch'
+import Profile from './components/Profile/Profile'
+import Netters from './components/Netters/Netters'
+import NotFound from './components/NotFound/NotFound'
 
-import './App.css';
+import './App.css'
 
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       username: '',
       pass: '',
       loggedIn: false,
-    };
-    this.saveUp = this.saveUp.bind(this);
+    }
+    this.saveUp = this.saveUp.bind(this)
   }
 
   saveUp(state) {
-    this.setState(state);
-    console.log('saveUp ', this.state);
+    this.setState(state)
+    console.log('saveUp ', this.state)
   }
 
   render() {
@@ -54,8 +54,8 @@ class App extends React.Component {
           </Switch>
         </div>
       </Router>
-    );
+    )
   }
 }
 
-export default App;
+export default App
