@@ -1,13 +1,13 @@
-import React from 'react';
+import React from 'react'
 
-import './Netters.css';
+import './Netters.css'
 
-import Nav from './Nav/Nav';
+import Nav from './Nav/Nav'
 
 class Netters extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = {};
+    super(props)
+    this.state = {}
   }
 
   render() {
@@ -16,11 +16,12 @@ class Netters extends React.Component {
         {/* Nav */}
         <Nav />
         {/*  */}
-        <header classN="w3-container w3-theme w3-padding" id="myHeader">
-          <buttom
-            onClick="w3_open()"
+        <header className="w3-container w3-theme w3-padding" id="myHeader">
+          {/* This code was getting int he way of the nav button */}
+          {/* <input
+            type="button"
             className="fa fa-bars w3-xlarge w3-button w3-theme"
-          />
+          /> */}
           <div className="w3-center w3-text-white">
             <h4>Donations without the frustrations</h4>
             <h1 className="w3-xxxlarge w3-animate-bottom">FundFlow</h1>
@@ -204,25 +205,25 @@ class Netters extends React.Component {
               also have the neat option of having a donation remain anonymous.
             </p>
           </div>
-          <div classNameName="w3-half w3-container">
+          <div className="w3-half w3-container">
             <h5>*Insert Image*</h5>
           </div>
         </div>
         <br />
         <br />
-        <div classNameName="w3-center">
+        <div className="w3-center">
           <h2>Our Mission</h2>
           <p>
             FundFlow is misson is simple: making sure no good deed is undone
           </p>
         </div>
-        <header classNameName="w3-container w3-blue">
+        <header className="w3-container w3-blue">
           <h2>Our mission</h2>
         </header>
-        <div classNameName="w3-padding w3-white w3-display-container">
+        <div className="w3-padding w3-white w3-display-container">
           <span
             // onclick="this.parentElement.style.display='none'"
-            classNameName="w3-button w3-display-topright"
+            className="w3-button w3-display-topright"
           />
           <h2>FundFlow is Mission</h2>
           <p>
@@ -325,6 +326,7 @@ class Netters extends React.Component {
                     className="w3-check"
                     type="checkbox"
                     checked="checked"
+                    readOnly
                   />
                   <p>Receive emails</p>
                   <br />
@@ -348,6 +350,7 @@ class Netters extends React.Component {
                     name="gender"
                     value="weekly"
                     checked
+                    readOnly
                   />
                   <p>Yes, I would like a weekly newsletter</p>
                   <br />
@@ -414,19 +417,19 @@ class Netters extends React.Component {
           />
           <img
             alt="lights pic not available"
-            classNameName="mySlides w3-animate-opacity"
+            className="mySlides w3-animate-opacity"
             src="/w3images/lights.jpg"
             // style="width:100%"
           />
           <img
             alt="mountains pic not available"
-            classNameName="mySlides w3-animate-opacity"
+            className="mySlides w3-animate-opacity"
             src="/w3images/mountains.jpg"
             // style="width:100%"
           />
           <img
             alt="forest pic not available"
-            classNameName="mySlides w3-animate-opacity"
+            className="mySlides w3-animate-opacity"
             src="/w3images/forest.jpg"
             // style="width:100%"
           />
@@ -541,8 +544,8 @@ class Netters extends React.Component {
           <p>Remember to check out our</p>
         </footer>
       </div>
-    );
+    )
   }
 }
 
-export default Netters;
+export default Netters
