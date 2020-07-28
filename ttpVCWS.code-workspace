@@ -1,6 +1,9 @@
 {
   "folders": [
     {
+      "path": "../bootcamp-2020.1"
+    },
+    {
       "path": "."
     }
   ],
